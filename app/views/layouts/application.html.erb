@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div = "banner">
+    <h1 class="display-3">C++ Made Simple</h1>
+    <p class="lead">A place to practice, learn and discover C++</p>
+    </div>
+  </div>
+  <nav class="nav nav-inline">
+    <ul class = "left-menu">
+      <li><a class="nav-link active" href="#">Home</a></li>
+      <li></li><a class="nav-link" href="#">About</a></li>
+      <li></li><a class="nav-link" href="#">Contact</a></li>
+    </ul>
+    <ul class = "right-menu">
+      
+      <li><label for="example-email-input">Email: </label></li>
+      <li><input class="email-box" type="email"></li>
+      <li><label for="example-email-input">Password: </label></li>
+      <li><input class="email-box" type="password"></li>
+      <li><a href="#"><button class="signup">Sign-in</button></a></li>
+      <li><a href="#"><button class="signup">Sign-up</button></a></li>
+    </ul>
+  </nav>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

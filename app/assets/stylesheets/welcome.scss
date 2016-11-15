@@ -1,0 +1,80 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron{
+    margin: none;
+}
+
+.container{
+    padding-bottom: 20px;
+}
+.container h1{
+    margin: auto;
+}
+
+.container p{
+    margin: auto;
+}
+
+
+.nav, .nav-line{
+    margin-top: 20px;
+    padding:none;
+    float: left;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+nav li, nav ul{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+}
+
+.left-menu{
+    margin:auto;
+    float: left;
+}
+
+.right-menu{
+    margin: auto;
+    float: right;
+}
+.signup{
+    border-radius: 5px;
+    background-color: #00007f;
+    color: #e5e500;
+}
+
+.nav a, .nav-line a {
+    color: #000000;
+}
+
+.navbar{
+    padding: none;
+    margin: none;
+    display: inline;
+}
+
+.email-box{
+    width: 200px;
+    border-radius: 5px;
+}
+
+.media-body{
+    margin:auto;
+    padding: 10px;
+}
+
+.container-fluid{
+    clear: both;
+}
+
+.container-fluid .media-body h1{
+    font-size: 3em;
+}
+
+.topic-menu{
+    list-style: none;
+    text-align: center;
+}
