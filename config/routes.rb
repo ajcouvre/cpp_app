@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  devise_for :users
+  get 'users/new'
+	
+    root to: "topics#index"
+	
+	  get "topics/index" => "topics#index"
+	  get "topics/atype" => "topics#atype"
+	  get "topics/inheritance" => "topics#inheritance"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,7 +24,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
+  #   resources :products dos
   #     member do
   #       get 'short'
   #       post 'toggle'
@@ -57,5 +64,5 @@ Rails.application.routes.draw do
   #   end
   
   
-  root 'welcome#index'
+  
 end

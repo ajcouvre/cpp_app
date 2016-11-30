@@ -1,0 +1,100 @@
+<%= provide(:title, 'Auto Typing') =%>
+
+<div class="container">
+<div class="row">
+   <div class="col-xs-2">
+   <!-- MAKE THIS WORK LTERSingle button
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Topics <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= link_to('Auto Typing', topics_atype_path) %></li>
+            <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
+            <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
+          </ul>
+        </div>-->
+    <ul class = "topics-list">
+        <lh>Topics List</lh>
+        <li><%= link_to('Auto Typing', topics_atype_path) %></li>
+        <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
+        <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
+    </ul>
+        
+    </div>
+    <div class="col-xs-9">
+        <h2>Auto Typing</h2>
+        <br/>
+        <p>
+        The use of auto in type definitions in C++ is fairly straightforward and works in the same way as templates work in function definitions.
+        <br/>
+        <br/>
+        In templates:
+        <br/>
+        <br/>
+        <pre><code>
+        template &lsaquo;class T&rsaquo;
+        void some_function(T t){
+        	cout << typeid(t).name << std::endl;
+        }
+        </code>
+        </pre>
+        
+        Here, the compiler assigns the type to T based on the expression or variable given as t. 
+        So, it follows that if I assign my variable to a string, I will get a string type. If it is an integer or float, I will get each respectively. 
+        <br/>
+        <br/>
+        With variables:
+        <br/>
+        <br/>
+        <pre><code>
+        int main(){
+        
+        	auto a_string = "This will be a string";
+        	auto an_int = 7;
+        	auto a_float = 10.56;
+        
+        	cout << "a_string is a " << typeid(a_string).name() << std::endl;
+        	cout << "an_int is a " << typeid(an_int).name() << std::endl;
+        	cout << "a_float is a " << typeid(a_float).name() << std::endl;
+        }
+        </code></pre>
+        In this example, we can see that the type id matches the type of expression assigned to it.
+        <br/>
+        <br/>
+  <button type="button" class="btn btn-info btn-lg" id="myBtn">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
+</p>
+        <h2>
+           Algorithm Visualization 
+        </h2>
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%23include%20%3Ctypeinfo%3E%0Aint%20main(%29%20%7B%0A%09%20%20auto%20x%20%3D%207%3B%0A%09%20%20std%3A%3Acout%20%3C%3C%20typeid(x%29.name(%29%20%3C%3C%20std%3A%3Aendl%3B%0A%09%20%20return%200%3B%0A%09%7D&codeDivHeight=400&codeDivWidth=350&curInstr=7&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D"> Auto Typing Visualization</iframe>
+        
+
+  </div>
+</div>
+</div>

@@ -1,0 +1,131 @@
+<%= provide(:title, 'Inheritance') =%>
+
+<div class="container">
+<div class="row">
+   <div class="col-xs-2">
+    <!--<ul class="nav nav-pills">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Topic List</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Auto Typing</a>
+          <a class="dropdown-item" href="#">Inheritance</a>
+          <a class="dropdown-item" href="#">Dynamic Dispatch</a>
+          <!--<div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Topic 4</a></a>
+        </div>
+      </li>
+    </ul>-->
+    
+    <ul class = "topics-list">
+        <lh>Topics List</lh>
+        <li><%= link_to('Auto Typing', topics_atype_path) %></li>
+        <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
+        <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
+    </ul>
+    </div>
+    <div class="col-xs-9">
+        <h2>Inheritance</h2>
+        <br/>
+        <p>
+            Inheritance is one of the core concepts of Object Oriented Programming and a valuable asset to C++. 
+            <br/>
+            <br/>
+            Inheritance allows us to define a new class or derived class from a class that we have already defined, called the base class. 
+            The derived class will then have access to the private methods and variables created in the base class. This allows us to more easily manage our programs and
+            to code more efficiently by reducing the amount of duplicated code.
+            <br/>
+            <br/>
+            Single inheritance occurs when when a derived class only inherits data from one base class. We specify in the class definition which base classes a derived class will inherit from
+            and which methods or data they will have access to. A derived class can inherit public, protected, and private data from a base class, though it is most common to inherit public
+            methods. 
+            <br/>
+            <br/>
+            Here is an example of single inheritance:        
+        <pre><code>
+        #include &lsaquo;iostream&rsaquo;
+        
+        class Person{
+          public:
+            int age;
+            void speak(){std::cout &lsaquo;&lsaquo; "Hello!" &lsaquo;&lsaquo; std::endl;}
+        };
+        
+        class Student: public Person{
+          public:
+            double GPA;
+            void setGPA(double num){ GPA = num; };
+            void displayGPA(){
+                std::cout &lsaquo;&lsaquo; "GPA: " &lsaquo;&lsaquo; GPA &lsaquo;&lsaquo; std::endl;
+                }
+            };
+        
+        int main(){
+          Student* student = new Student();
+          student->setGPA(3.5);
+          student->speak();
+          student->displayGPA();
+          
+          return 0;
+        }
+        </code>
+        </pre>
+        In this example, although there is no speak function in Student, it has access to the speak function of Person. Because a Student inherits
+        the public methods from Person it can use the speak method.
+        <br/>
+        <br/>
+        Multiple inheritance occurs when a derived class inherits from one or more base class. There is actually no limit on the amount of classes that a derived class can inherit from. 
+        While multiple inheritance sounds like a good idea, it can actually generate some unique problems. If two classes have the same method name, which version of 
+        the method will be called?
+        <br/>
+        <br/>
+        <pre><code>
+        #include &lsaquo;iostream&rsaquo;
+        
+        class Person{
+          public:
+            int age;
+            void speak(){std::cout &lsaquo;&lsaquo; "Hello!" &lsaquo;&lsaquo; std::endl;}
+        };
+        
+        class Friend{
+          public:
+            void speak(){std::cout &lsaquo;&lsaquo; "What's up?" &lsaquo;&lsaquo; std::endl;};
+        
+        class Student: public Friend, public Person{
+          public:
+            double GPA;
+            void setGPA(double num){ GPA = num; };
+            void displayGPA(){
+                std::cout &lsaquo;&lsaquo; "GPA: " &lsaquo;&lsaquo; GPA &lsaquo;&lsaquo; std::endl;
+                }
+            };
+        
+        
+        int main(){
+          Student* student = new Student();
+          student->setGPA(3.5);
+          student->Friend::speak();
+          student->Person::speak()
+          student->displayGPA();
+          
+          return 0;
+        }
+        </code></pre>
+        In this example, we had to add the Friend and Person qualifiers to speak in order to get the desired version of the method speak.
+        <br/>
+        <br/>
+        It is encouraged to avoid these problems if possible by using techniques such as composition rather than multiple inheritance to access member functions from base classes.
+        The diamond problem is a classic example of the problems that come with multiple inheritance.
+        <br/>
+        <br/>
+        
+</p>
+        <h2>
+           Algorithm Visualization 
+        </h2>
+        <iframe width="800" height="600" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%0Aclass%20Person%7B%0A%20%20public%3A%0A%20%20%20%20int%20age%3B%0A%20%20%20%20void%20speak(%29%7Bstd%3A%3Acout%20%3C%3C%20%22Hello!%22%20%3C%3C%20std%3A%3Aendl%3B%7D%0A%7D%3B%0A%0Aclass%20Friend%7B%0A%20%20public%3A%0A%20%20%20%20void%20speak(%29%7Bstd%3A%3Acout%20%3C%3C%20%22What's%20up%3F%22%20%3C%3C%20std%3A%3Aendl%3B%7D%0A%7D%3B%0A%0Aclass%20Student%3A%20public%20Friend,%20public%20Person%7B%0A%20%20public%3A%0A%20%20%20%20double%20GPA%3B%0A%20%20%20%20void%20setGPA(double%20num%29%7B%20GPA%20%3D%20num%3B%20%7D%3B%0A%20%20%20%20void%20displayGPA(%29%7B%0A%20%20%20%20%20%20%20%20std%3A%3Acout%20%3C%3C%20%22GPA%3A%20%22%20%3C%3C%20GPA%20%3C%3C%20std%3A%3Aendl%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%3B%0A%0A%0Aint%20main(%29%7B%0A%20%20Student*%20student%20%3D%20new%20Student(%29%3B%0A%20%20student-%3EsetGPA(3.5%29%3B%0A%20%20student-%3EFriend%3A%3Aspeak(%29%3B%0A%20%20student-%3EPerson%3A%3Aspeak(%29%3B%0A%20%20student-%3EdisplayGPA(%29%3B%0A%20%20%0A%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D"> </iframe>
+        
+
+  </div>
+</div>
+</div>

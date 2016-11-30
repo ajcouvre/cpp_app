@@ -1,0 +1,42 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.row div{
+    display:inline;
+}
+
+.col-xs-2{
+    float: left;
+    margin: 0;
+
+}
+
+.col-xs-9{
+    float: left;
+    border-left: 1px solid black;
+}
+
+h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.topics-list{
+    list-style:none;
+    margin:10px auto;
+    padding:0;
+}
+
+.topics-list lh{
+    font-size: 24px;
+    border-bottom: 1px solid black;
+    margin:auto;
+}
+
+.topics-list li{
+    padding: 10px;
+}
+
+pre{
+    background-color: #eceeef;
+}

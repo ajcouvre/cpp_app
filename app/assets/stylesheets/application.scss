@@ -20,3 +20,21 @@
     text-align: center;
     margin: auto;
 }
+
+nav li, nav ul{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+}
+
+.left-menu{
+    float: left;
+    padding: none;
+}
+
+.right-menu{
+    float: right;
+    padding:none;
+}
+
+

@@ -32,13 +32,18 @@ nav li, nav ul{
 }
 
 .left-menu{
-    margin:auto;
     float: left;
+    padding: none;
 }
 
 .right-menu{
-    margin: auto;
     float: right;
+    padding:none;
+}
+
+.left-menu-list{
+    padding-bottom: 10px;
+    text-align: bottom;
 }
 .signup{
     border-radius: 5px;
@@ -78,3 +83,4 @@ nav li, nav ul{
     list-style: none;
     text-align: center;
 }
+
