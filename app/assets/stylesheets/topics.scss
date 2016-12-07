@@ -3,19 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .row div{
     display:inline;
+    padding-bottom: 0;
 }
 
 .col-xs-2{
     float: left;
-    margin: 0;
-
+    margin: 0 0 0 15px;
+    padding-bottom: 0;
 }
 
 .col-xs-9{
     float: left;
-    border-left: 1px solid black;
+    padding: 0;
+    margin: 0;
 }
 
+.with-border{
+    border-left: 1px solid black;
+}
 h2{
     text-align: center;
     font-weight: bold;
@@ -27,16 +32,15 @@ h2{
     padding:0;
 }
 
-.topics-list lh{
+h3{
     font-size: 24px;
-    border-bottom: 1px solid black;
-    margin:auto;
 }
 
 .topics-list li{
     padding: 10px;
 }
 
-pre{
+pre, code{
     background-color: #eceeef;
+    padding: 0;
 }

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	  get "topics/index" => "topics#index"
 	  get "topics/atype" => "topics#atype"
 	  get "topics/inheritance" => "topics#inheritance"
+	  get "topics/ddp" => "topics#ddp"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

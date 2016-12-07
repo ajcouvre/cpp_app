@@ -9,4 +9,7 @@ end
 def inheritance
 end
 
+def ddp
+end
+
 end

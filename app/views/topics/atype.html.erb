@@ -1,51 +1,39 @@
 <%= provide(:title, 'Auto Typing') =%>
 
-<div class="container">
+<div class="container-fluid">
 <div class="row">
    <div class="col-xs-2">
-   <!-- MAKE THIS WORK LTERSingle button
-        <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Topics <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><%= link_to('Auto Typing', topics_atype_path) %></li>
-            <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
-            <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
-          </ul>
-        </div>-->
-    <ul class = "topics-list">
-        <lh>Topics List</lh>
+     <h3>Topics</h3>
+      <ul class = "topics-list">
         <li><%= link_to('Auto Typing', topics_atype_path) %></li>
         <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
-        <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
-    </ul>
-        
-    </div>
-    <div class="col-xs-9">
-        <h2>Auto Typing</h2>
-        <br/>
+        <li><%= link_to('Dynamic Dispatch', topics_ddp_path) %></li>
+      </ul>
+   </div>
+   <div class="col-xs-9 with-border">
+     <h2>Auto Typing</h2>
+             <br/>
         <p>
         The use of auto in type definitions in C++ is fairly straightforward and works in the same way as templates work in function definitions.
+        </p>
         <br/>
-        <br/>
-        In templates:
-        <br/>
+        <p>In templates:</p>
         <br/>
         <pre><code>
         template &lsaquo;class T&rsaquo;
         void some_function(T t){
-        	cout << typeid(t).name << std::endl;
+        	cout &lsaquo;&lsaquo; typeid(t).name &lsaquo;&lsaquo; std::endl;
         }
         </code>
         </pre>
-        
+        <p>
         Here, the compiler assigns the type to T based on the expression or variable given as t. 
         So, it follows that if I assign my variable to a string, I will get a string type. If it is an integer or float, I will get each respectively. 
+        </p>
         <br/>
-        <br/>
+        <p>
         With variables:
-        <br/>
+        </p>
         <br/>
         <pre><code>
         int main(){
@@ -54,47 +42,95 @@
         	auto an_int = 7;
         	auto a_float = 10.56;
         
-        	cout << "a_string is a " << typeid(a_string).name() << std::endl;
-        	cout << "an_int is a " << typeid(an_int).name() << std::endl;
-        	cout << "a_float is a " << typeid(a_float).name() << std::endl;
+        	cout &lsaquo;&lsaquo; "a_string is a " &lsaquo;&lsaquo; typeid(a_string).name() &lsaquo;&lsaquo; std::endl;
+        	cout &lsaquo;&lsaquo; "an_int is a " &lsaquo;&lsaquo; typeid(an_int).name() &lsaquo;&lsaquo; std::endl;
+        	cout &lsaquo;&lsaquo; "a_float is a " &lsaquo;&lsaquo; typeid(a_float).name() &lsaquo;&lsaquo; std::endl;
         }
         </code></pre>
+        <p>
         In this example, we can see that the type id matches the type of expression assigned to it.
+        </p>
         <br/>
-        <br/>
-  <button type="button" class="btn btn-info btn-lg" id="myBtn">Open Modal</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-
-
-
-</p>
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Quiz Me
+        </button>
         <h2>
            Algorithm Visualization 
         </h2>
-        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%23include%20%3Ctypeinfo%3E%0Aint%20main(%29%20%7B%0A%09%20%20auto%20x%20%3D%207%3B%0A%09%20%20std%3A%3Acout%20%3C%3C%20typeid(x%29.name(%29%20%3C%3C%20std%3A%3Aendl%3B%0A%09%20%20return%200%3B%0A%09%7D&codeDivHeight=400&codeDivWidth=350&curInstr=7&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D"> Auto Typing Visualization</iframe>
-        
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0A%23include%20%3Ctypeinfo%3E%0A%0Aint%20main(%29%7B%0A%20%20%0A%20%20%09auto%20a_string%20%3D%20%22This%20will%20be%20a%20string%22%3B%0A%20%20%09auto%20an_int%20%3D%207%3B%0A%20%20%09auto%20a_float%20%3D%2010.56%3B%0A%20%20%0A%20%20%09std%3A%3Acout%20%3C%3C%20%22a_string%20is%20a%20%22%20%3C%3C%20typeid(a_string%29.name(%29%20%3C%3C%20std%3A%3Aendl%3B%0A%20%20%09std%3A%3Acout%20%3C%3C%20%22an_int%20is%20a%20%22%20%3C%3C%20typeid(an_int%29.name(%29%20%3C%3C%20std%3A%3Aendl%3B%0A%20%20%09std%3A%3Acout%20%3C%3C%20%22a_float%20is%20a%20%22%20%3C%3C%20typeid(a_float%29.name(%29%20%3C%3C%20std%3A%3Aendl%3B%0A%20%20%7D%0A%20%20&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D"> </iframe>
+   </div>
+</div>
+</div>
 
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Auto Typing</h4>
+      </div>
+      <div class="modal-body">
+          <fieldset class="form-group">
+            <legend>Q1 - Easy</legend>
+            <div class="form-check">
+              <p>In templates as in variable declarations, the auto type can be used to create methods that can work with multiple return types
+              or assign a type to variables where it may not be known previously. The type that is assigned is dependent on:</p>
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" onclick=alert('incorrect')>
+                The return type
+              </label>
+            </div>
+            <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" onclick=alert('correct')>
+                The expression assigned to the variable
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" onclick=alert('incorrect')>
+                However it is used in the program
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios4" value="option" onclick=alert('incorrect')>
+                None of these
+              </label>
+            </div>
+        </div>
+        </fieldset>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Submit</button>-->
+      </div>
+    </div>
   </div>
 </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

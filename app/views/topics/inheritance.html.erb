@@ -1,6 +1,6 @@
 <%= provide(:title, 'Inheritance') =%>
 
-<div class="container">
+<div class="container-fluid">
 <div class="row">
    <div class="col-xs-2">
     <!--<ul class="nav nav-pills">
@@ -15,12 +15,11 @@
         </div>
       </li>
     </ul>-->
-    
+    <h3>Topics</h3>
     <ul class = "topics-list">
-        <lh>Topics List</lh>
         <li><%= link_to('Auto Typing', topics_atype_path) %></li>
         <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
-        <li><%= link_to('Dynamic Dispatch', topics_atype_path) %></li>
+        <li><%= link_to('Dynamic Dispatch', topics_ddp_path) %></li>
     </ul>
     </div>
     <div class="col-xs-9">
@@ -118,7 +117,9 @@
         The diamond problem is a classic example of the problems that come with multiple inheritance.
         <br/>
         <br/>
-        
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Quiz Me
+        </button>
 </p>
         <h2>
            Algorithm Visualization 
@@ -128,4 +129,76 @@
 
   </div>
 </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Inheritance</h4>
+      </div>
+      <div class="modal-body">
+          <fieldset class="form-group">
+            <legend>Q1 - Easy</legend>
+            <div class="form-check">
+              <p>Given the following snippet:
+              <pre>
+                  <code>
+          class Parent{
+              public:
+                  void yell()(std::cout &lsaquo;&lsaquo; "Eat your veggies!" &lsaquo;&lsaquo; endl;)
+            };
+          class Teacher{
+              public:
+                  void yell()(std::cout &lsaquo;&lsaquo; "Do your homework!" &lsaquo;&lsaquo; endl;)
+            };
+            
+          class Adult: public Teacher, public Parent{
+              public:
+                  
+          };
+          
+          int main(){
+              Adult* adult = new Adult();
+          }
+                  </code>
+              </pre>
+              Which of the following would print "Do your homework!":
+              </p>
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" onclick=alert('incorrect')>
+                adult->Parent::yell()
+              </label>
+            </div>
+            <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" onclick=alert('correct')>
+                adult->Teacher::yell()
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" onclick=alert('incorrect')>
+                Teacher.yell()
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios4" value="option" onclick=alert('incorrect')>
+                Parent.yell()
+              </label>
+            </div>
+        </div>
+        </fieldset>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Submit</button>-->
+      </div>
+    </div>
+  </div>
 </div>

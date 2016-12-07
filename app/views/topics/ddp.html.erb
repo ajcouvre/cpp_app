@@ -1,0 +1,177 @@
+<%= provide(:title, 'Dynamic Dispatch') %>
+
+<div class="container-fluid">
+<div class="row">
+   <div class="col-xs-2">
+     <h3>Topics</h3>
+      <ul class = "topics-list">
+        <li><%= link_to('Auto Typing', topics_atype_path) %></li>
+        <li><%= link_to('Inheritance', topics_inheritance_path) %></li>
+        <li><%= link_to('Dynamic Dispatch', topics_ddp_path) %></li>
+      </ul>
+   </div>
+   <div class="col-xs-9">
+     <h2>Static vs. Dynamic Dispatch</h2>
+     <br/>
+     <h3>Static Dispatch</h3>
+     <br/>
+     <p>
+         Static dispatch, also known as single dispatch, occurs when the invoked method of a class is known at compile time. 
+     </p>
+     <br/>
+     <pre>
+         <code>
+            class Base
+            {
+            public:
+            const char* GetName() { return "Base"; }
+            };
+ 
+            int main()
+            {
+                Base* base = new Base();
+                cout << "cBase is a " << base->GetName() << endl;
+            }
+         </code>
+     </pre>
+     <br/>
+     <p>
+         In this example, the compiler invokes the GetName method of the base class. Since its known at compile time it is called static dispatch. 
+     </p>
+     <br/>
+     <p>
+         In a slightly more complex example:
+     </p>
+     <br/>
+     <pre>
+         <code>
+            class Base
+            {
+            protected:
+             
+            public:
+                const char* GetName() { return "Base"; }
+            };
+             
+            class Derived: public Base
+            {
+            public:
+                const char* GetName() { return "Derived"; }
+            };
+             
+            int main()
+            {
+                Derived aDerived;
+                Base &cBase = aDerived;
+                cout << "cBase is a " << cBase.GetName() << endl;
+            }
+         </code>
+     </pre>
+     <br/>
+     <p>
+        This code will also produce the base result because even though it is pointing to a Derived object, the pointer is still a Base pointer. This is also known at compile time
+        and is still static dispatch. 
+     </p>
+     <br/>
+     <h3>Dynamic Dispatch</h3>
+     <br/>
+     <p>
+         Dynamic dispatch occurs with the use of a virtual function and will allow the method invoked to that of the instance itself and not the base class. The difference is that in
+        static dispatch, the method is bound early and thus it believes that the method is that of the Base class. When it runs, the Base method is invoked. However, when a virtual function
+        is used, the compiler searches the virtual page table that instead invoked the most derived version of the method (not the earliest version as in static). This difference allows
+        virtual function calls to invoke the method of the actual instance itself of the class rather than the base class. 
+     </p>
+     <pre>
+         <code>
+            class A
+            {
+            public:
+                virtual const char* GetName() { return "A"; }
+            };
+             
+            class B: public A
+            {
+            public:
+                virtual const char* GetName() { return "B"; }
+            };
+             
+            class C: public B
+            {
+            public:
+                virtual const char* GetName() { return "C"; }
+            };
+             
+            class D: public C
+            {
+            public:
+                virtual const char* GetName() { return "D"; }
+            };
+             
+            int main()
+            {
+                C cClass;
+                A &rBase = cClass;
+                cout << "rBase is a " << rBase.GetName() << endl;
+             
+                return 0;
+            }
+         </code>
+     </pre>
+     <br/>
+     <p>
+        This only works for functions with the same name and return type to the method. Therefore it is necessary to restrict the name and overriding return type (return type of the derived method)
+        so that the compiler can call either the Base or the Derived method at run-time. 
+     </p>
+     <br/>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Quiz Me
+    </button>
+    </br>
+    <h2>
+           Algorithm Visualization 
+    </h2>
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Ciostream%3E%0Ausing%20namespace%20std%3B%0A%0Aclass%20A%0A%7B%0Apublic%3A%0A%20%20%20%20virtual%20const%20char*%20GetName(%29%20%7B%20return%20%22A%22%3B%20%7D%0A%7D%3B%0A%20%0Aclass%20B%3A%20public%20A%0A%7B%0Apublic%3A%0A%20%20%20%20virtual%20const%20char*%20GetName(%29%20%7B%20return%20%22B%22%3B%20%7D%0A%7D%3B%0A%20%0Aclass%20C%3A%20public%20B%0A%7B%0Apublic%3A%0A%20%20%20%20virtual%20const%20char*%20GetName(%29%20%7B%20return%20%22C%22%3B%20%7D%0A%7D%3B%0A%20%0Aclass%20D%3A%20public%20C%0A%7B%0Apublic%3A%0A%20%20%20%20virtual%20const%20char*%20GetName(%29%20%7B%20return%20%22D%22%3B%20%7D%0A%7D%3B%0A%20%0Aint%20main(%29%0A%7B%0A%20%20%20%20C%20cClass%3B%0A%20%20%20%20A%20%26rBase%20%3D%20cClass%3B%0A%20%20%20%20cout%20%3C%3C%20%22rBase%20is%20a%20%22%20%3C%3C%20rBase.GetName(%29%20%3C%3C%20endl%3B%0A%20%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=15&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D"> </iframe>
+    </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Dynamic Dipatch</h4>
+      </div>
+      <div class="modal-body">
+          <fieldset class="form-group">
+            <legend>Q1 - Easy</legend></legend>
+            <div class="form-check">
+              <p>True or False: Adding virtual to the function definition will force the compiler to call the method of the instance itself and not the type of the pointer
+              </p>
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" onclick=alert('incorrect')>
+                False
+              </label>
+            </div>
+            <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" onclick=alert('correct')>
+                True
+              </label>
+            </div>
+            
+        </div>
+        </fieldset>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Submit</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
